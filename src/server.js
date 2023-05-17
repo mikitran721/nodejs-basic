@@ -4,6 +4,7 @@ import configViewengine from "./configs/viewEngine.js";
 // require("dotenv").config();
 import dotnev from "dotenv";
 import initWebRoute from "./route/web.js";
+// import connection from "./configs/connectDB.js";
 
 const app = express();
 // const port = 8080;

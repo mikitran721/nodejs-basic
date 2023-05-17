@@ -1,6 +1,6 @@
 // cai dat cua babel-package
 {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  }
+  "presets": [
+    "@babel/preset-env"
+  ]
+}
