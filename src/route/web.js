@@ -7,6 +7,7 @@ const initWebRoute = (app) => {
   // app.METHOD(PATH, HANDLER); // tao route
   router.get("/", homeController.getHomepage);
   router.get("/detail/user/:id", homeController.getDetailpage);
+  router.post("/create-new-user", homeController.createNewUser);
   app.get("/about", (req, res) => {
     res.send(`I'm Miki Tran from HCMC`);
   });

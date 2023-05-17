@@ -10,6 +10,10 @@ const app = express();
 // const port = 8080;
 const port = process.env.PORT || 8080;
 
+// config get data client->server
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // config view engine
 configViewengine(app);
 
