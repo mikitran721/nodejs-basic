@@ -8,6 +8,9 @@ const initWebRoute = (app) => {
   router.get("/", homeController.getHomepage);
   router.get("/detail/user/:id", homeController.getDetailpage);
   router.post("/create-new-user", homeController.createNewUser);
+  router.post("/delete-user", homeController.deleteUser);
+  router.get("/edit-user/:userId", homeController.editUser);
+  router.post("/update-user", homeController.postUpdateUser);
   app.get("/about", (req, res) => {
     res.send(`I'm Miki Tran from HCMC`);
   });
