@@ -5,6 +5,7 @@ import configViewengine from "./configs/viewEngine.js";
 import dotnev from "dotenv";
 import initWebRoute from "./route/web.js";
 // import connection from "./configs/connectDB.js";
+import initAPIRoute from "./route/api.js";
 
 const app = express();
 // const port = 8080;
@@ -19,6 +20,9 @@ configViewengine(app);
 
 // init web route
 initWebRoute(app);
+
+// init api route
+initAPIRoute(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
