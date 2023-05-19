@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload file with Multer</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+</head>
+<body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a class="active" href="/upload">Upload - Multer</a>
+      <a href="/about">About</a>
+    </div>
+    
+    <div class="upload-file-container">
+        <h1>Upload single file</h1>
+        <form enctype="multipart/form-data" method="post" action="/upload-profile-pic">
+            <div>
+                <label>Avatar:</label>
+                <input name="profile_pic" type="file" />
+            </div>
+            <div>
+                <button class="btn-save" type="submit">Save file</button>
+                
+            </div>
+        </form>
+    </div>
+    <div class="upload-file-container">
+        <h1>Upload multiple files</h1>
+        <form method="POST" action="/upload-multiple-images" enctype="multipart/form-data">
+            <div>
+                <label>Select multiple images:</label>
+                <input type="file" name="multiple_images" multiple />
+            </div>
+            <div>
+                <input type="submit" name="btn_upload_multiple_images" value="Upload" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

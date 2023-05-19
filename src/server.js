@@ -14,6 +14,11 @@ const port = process.env.PORT || 8080;
 // config get data client->server
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true,
+//   })
+// );
 
 // config view engine
 configViewengine(app);
