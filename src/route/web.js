@@ -31,6 +31,10 @@ const imageFilter = function (req, file, cb) {
 };
 
 let upload = multer({ storage: storage, fileFilter: imageFilter }); //midle ware
+let upload1 = multer({ storage: storage, fileFilter: imageFilter }).array(
+  "multiple_images",
+  3
+);
 
 const initWebRoute = (app) => {
   // app.METHOD(PATH, HANDLER); // tao route
@@ -48,6 +52,35 @@ const initWebRoute = (app) => {
     "/upload-profile-pic",
     upload.single("profile_pic"),
     homeController.handleUploadFile
+  );
+
+  // upload multiple file
+  // router.post(
+  //   "/upload-multiple-images",
+  //   upload.array("multiple_images", 3),
+  //   homeController.handleUploadMultipleFiles
+  // );
+
+  router.post(
+    "/upload-multiple-images",
+    (req, res, next) => {
+      upload1(req, res, (err) => {
+        //ts 3 la 1 callback
+        if (
+          err instanceof multer.MulterError &&
+          err.code === "LIMIT_UNEXPECTED_FILE"
+        ) {
+          // handle multer file limit error here
+          res.send("LIMIT_UNEXPECTED_FILE");
+        } else if (err) {
+          res.send(err);
+        } else {
+          // make sure to call next() if all as well
+          next();
+        }
+      });
+    },
+    homeController.handleUploadMultipleFiles
   );
 
   app.get("/about", (req, res) => {
